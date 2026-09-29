@@ -1,0 +1,15 @@
+# Python env used for local image conversion, not part of the site
+.venv/
+__pycache__/
+
+# Auto-generated preview
+.thumbnail
+
+# Original export archive (redundant with the extracted .dc.html/support.js sources)
+*.zip
+
+# Self-unpacking JS bundle export (heavy, not real static markup — see index.html for the deployable rebuild)
+elepe.tech Landing (standalone).html
+
+# Unrelated design-system scaffold, not part of elepe.tech branding
+_ds/
