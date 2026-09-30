@@ -214,14 +214,14 @@
           <span style="width:9px;height:9px;border-radius:999px;background:rgba(228,230,233,0.28);display:block"></span>
           <span style="width:9px;height:9px;border-radius:999px;background:rgba(228,230,233,0.28);display:block"></span>
           <span style="width:9px;height:9px;border-radius:999px;background:rgba(228,230,233,0.28);display:block"></span>
-          <p id="demo-filename" style="margin-left:8px;font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:rgba(228,230,233,0.6)">assets/demos/tango-agent.mp4</p>
+          <p id="demo-filename" style="margin-left:8px;font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:rgba(228,230,233,0.6)">assets/demos/tango-agent.gif</p>
         </div>
         <div style="position:relative;width:100%;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#041F42">
           <img id="demo-gif" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none">
           <div id="demo-placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:26px;text-align:center">
             <img src="assets/isotipo.webp" alt="" style="width:74px;opacity:0.32;filter:brightness(0) invert(1)">
             <p id="demo-title" style="font-size:14.5px;font-weight:600;color:#FFFFFF;line-height:1.4">Tango Agent — Consultas IA en Tango ERP</p>
-            <p style="font-size:13px;line-height:1.5;color:rgba(228,230,233,0.62);max-width:280px">Espacio para el screencast de la app. Subí el archivo como <span id="demo-filename-2" style="font-weight:600;color:rgba(228,230,233,0.85)">assets/demos/tango-agent.mp4</span>.</p>
+            <p style="font-size:13px;line-height:1.5;color:rgba(228,230,233,0.62);max-width:280px">Espacio para el screencast de la app. Subí el archivo como <span id="demo-filename-2" style="font-weight:600;color:rgba(228,230,233,0.85)">assets/demos/tango-agent.gif</span>.</p>
           </div>
         </div>
       </div>
@@ -328,6 +328,10 @@
       <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.15;color:#00152F">Contame qué necesitás resolver</h2>
       <p style="font-size:16.5px;line-height:1.65;color:#5a6676;max-width:460px">Respondo en el día. Si preferís hablar directamente, escribime por WhatsApp o agendá una llamada.</p>
       <div style="display:flex;flex-direction:column;gap:2px;border-top:1px solid #E4E6E9;padding-top:22px">
+        <a href="mailto:olpizarro@elepe.tech" class="contact-link" style="display:flex;align-items:center;gap:12px;padding:13px 0;font-size:16px;font-weight:500;color:#00152F;border-bottom:1px solid #E4E6E9">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0554C4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m3 7 9 6 9-6"></path></svg>
+          olpizarro@elepe.tech
+        </a>
         <a href="mailto:omarlunapizarro@gmail.com" class="contact-link" style="display:flex;align-items:center;gap:12px;padding:13px 0;font-size:16px;font-weight:500;color:#00152F;border-bottom:1px solid #E4E6E9">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0554C4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m3 7 9 6 9-6"></path></svg>
           omarlunapizarro@gmail.com
@@ -395,7 +399,7 @@
 <script>
 (function () {
   var demos = [
-    { titulo: "Tango Agent — Consultas IA en Tango ERP", archivo: "assets/demos/tango-agent.mp4" },
+    { titulo: "Tango Agent — Consultas IA en Tango ERP", archivo: "assets/demos/tango-agent.gif" },
     { titulo: "DocVault — Gestión de Documentos con Vencimientos", archivo: "assets/demos/docvault.gif" },
     { titulo: "Agente IA — Gestión Documental SharePoint", archivo: "assets/demos/agente-ia.gif" }
   ];
@@ -421,6 +425,9 @@
       placeholderEl.style.display = "flex";
     }
   }
+
+  var initial = Array.prototype.findIndex.call(tabs, function (b) { return b.classList.contains("is-active"); });
+  applyDemo(demos[initial < 0 ? 0 : initial]);
 
   tabs.forEach(function (btn, i) {
     btn.addEventListener("click", function () {
@@ -462,7 +469,7 @@
       })
       .catch(function () {
         status.style.color = "#c0392b";
-        status.textContent = "No se pudo enviar. Escribime directo a omarlunapizarro@gmail.com o por WhatsApp.";
+        status.textContent = "No se pudo enviar. Escribime directo a olpizarro@elepe.tech o por WhatsApp.";
       })
       .finally(function () {
         submitBtn.disabled = false;
